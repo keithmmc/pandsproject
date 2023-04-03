@@ -43,6 +43,18 @@ with open("iris.txt", "a") as f:
     print(iris.tail(10))
     print (iris.sample(5))
     
+    print("\n**************************summery of the dataset**********************************/n/n")
+    ##Using the `unique()` method on the 'Class' column to show how many different class or species of Iris flower is in the data set
+    iris['Class'].unique()
+    species_type =iris['Class'].unique()
+    print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
+    #getting the summery statistics of the dataset 
+    print(iris.describe())
+    print("\n*************************The number of null or missing values in the iris dataframe for each column**********\n ")
+    print(iris.isnull().sum())
+    
+    
+    
     
     
    
