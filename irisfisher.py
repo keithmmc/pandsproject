@@ -53,9 +53,13 @@ with open("iris.txt", "a") as f:
     print("\n*************************The number of null or missing values in the iris dataframe for each column**********\n ")
     print(iris.isnull().sum())
     
+    print('\n============================= Median of Attributes ===========================\n') 
+    # Print the median of each of the attributes in tabular form
+    print(iris.median()) 
+    print('\n******************************Mean of Attributes******************************/n')
+    print(iris.mean())
     
-    
-    
+    sys.stdout = original_stdout
     
    
     
