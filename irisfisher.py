@@ -61,5 +61,15 @@ with open("iris.txt", "a") as f:
     
     sys.stdout = original_stdout
     
+    # VISUALISATIONS OF THE IRIS DATA SET
+
+# pandas DataFrame.hist() plots the histograms of the columns on multiple subplots:
+
+
+iris.hist(alpha=0.8, bins=30, figsize=(12,8))
+plt.suptitle("Histogram of the Iris petal and sepal measurements")
+plt.show()
+
+iris.plot(kind="scatter" , x="sepal_Length" , y="sepal_Width" , color="green" , s=70)
+plt.show()
    
-    
