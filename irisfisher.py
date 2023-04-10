@@ -7,6 +7,7 @@ import pandas as pd
 import sys
 
 
+
 cols = ['sepal_Length', 'sepal_Width','Petal_Length','Petal_Width','Class']
 csv = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
 #reading the CSV file 
@@ -23,6 +24,8 @@ print(f"The iris DataFrame has {iris.size} elements in total.\n")
 print(f" The index of the DataFrame is: ", iris.index)
     # The DataFrame has both a row and a column index which were automatically assigned when the DataFrame was created.
     # Get the column labels of the iris DataFrame using  'pandas.DataFrame.columns'
+print(f" The index of the DataFrame is: ", iris.index)
+print("The index for the rows are ",*iris.index)
 print(f"The column labels of the iris DataFrame are: \n", *iris.columns, sep = "   ")
 #returning the first ten rows of data to ensure that the file has loaded correctly
 print(iris.head(10))
@@ -52,12 +55,15 @@ with open("iris.txt", "a") as f:
     print(iris.describe())
     print("\n*************************The number of null or missing values in the iris dataframe for each column**********\n ")
     print(iris.isnull().sum())
-    
+    print ('\n=============================== Duplicate Entries ==============================\n')
+    print (iris[iris.duplicated()])
     print('\n============================= Median of Attributes ===========================\n') 
     # Print the median of each of the attributes in tabular form
     print(iris.median()) 
     print('\n******************************Mean of Attributes******************************/n')
     print(iris.mean())
+    print('\n******************************Max of Attributes******************************/n')
+    print(iris.max())
     
     sys.stdout = original_stdout
     
@@ -72,4 +78,9 @@ plt.show()
 
 iris.plot(kind="scatter" , x="sepal_Length" , y="sepal_Width" , color="green" , s=70)
 plt.show()
-   
+
+iris.plot(kind="scatter" , x="Petal_Length" , y="Petal_Width" , color="red" , s=70)
+plt.show()
+
+
+
