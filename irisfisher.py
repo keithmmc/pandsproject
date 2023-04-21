@@ -93,11 +93,26 @@ iris.plot(kind="scatter" , x="Petal_Length" , y="Petal_Width" , color="red" , s=
 ##plt.show()
 plt.savefig('plot2')
 
-print("Boxplots of the distribution of the iris data.")
-iris.plot.box(figsize=(6,4))
-plt.suptitle("Boxplots of the Iris petal and sepal measurements")
+sns.set(style="ticks", palette="pastel")
+
+# plotting 4 plots on a 2 by 2 grid, do not want to share the y axis between plots. Setting the figure size 
+f, axes = plt.subplots(2, 2, sharey=False, figsize=(12, 8))
+# pass a panda Series as the x and y parameters to the boxplot. 
+# Using the Class column (categorical) and one of the sepal or petal measurements (numerical) for each subplot
+
+# setting the hue = Class so that the points will be coloured on the plot according to their Class/species type.
+sns.boxplot(x="Class", y="sepal_Length", data=iris, ax=axes[0,1])
+sns.boxplot(x="Class", y="sepal_Width", data=iris, ax=axes[1,1])
+sns.boxplot(x="Class", y="Petal_Length",data=iris, ax = axes[0,0])
+
+sns.boxplot(x="Class", y="Petal_Width",hue = "Class",data=iris, ax=axes[1,0])
+
+# adding a title to the plot
+f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
+
+sns.set(style="white", rc={'figure.figsize':(11.7,8.27)})
+sns.pairplot(iris, hue='Class', palette="crest")
 plt.show()
-plt.savefig('boxplots')
 
 
 print("Using pands groupby function to split the iris dataframe by Class of iris species \n")
@@ -109,21 +124,6 @@ iris.groupby("Class").count()
 print("The number of observations for each variable for each Iris species in the data set are as follows: \n \n",iris.groupby("Class").count())
 
 
-plt.title('Class Count')
-sns.countplot(data=iris)
-plt.savefig('Class_count')
-plt.close()
-
-# histogram - general by attribute
-fig, axs = plt.subplots(2, 2, figsize=(16, 9))
-sns.histplot(data=iris,  color="dodgerblue", ax=axs[0, 0], bins=7)
-sns.histplot(data=iris,  color="mediumorchid", ax=axs[0, 1], bins=5)
-sns.histplot(data=iris,  color="slateblue", ax=axs[1, 0], bins=7)
-sns.histplot(data=iris,  color="teal", ax=axs[1, 1], bins=5)
-plt.suptitle('Attributes - General')
-plt.savefig('attributes_general')
-plt.close()
-
 # Heatmap of correlations between attributes
 plt.figure(figsize=(8,8))
 sns.heatmap(iris.corr(), annot=True, cmap='Blues')
@@ -131,20 +131,22 @@ plt.title('Correlation Between Attributes')
 plt.savefig('heatmap')
 plt.close()
 
-# defining function for histograms - attributes by species
-def histogram_plot(p1, p2, p3):
-    
-    sns.histplot(data = iris_virginica[p1], color = 'dodgerblue') 
-    sns.histplot(data = iris_versicolor[p1], color = 'mediumorchid')
-    sns.histplot(data = iris_setosa[p1], color = 'teal')
-    plt.xlabel(p2)
-    plt.ylabel('Count')
-    plt.title('Histogram of ' + p2 + ' by Class') 
-    plt.legend(['Iris-virginica', 'Iris-versicolor', 'Iris_setosa'])
-    plt.savefig(p3)
-    plt.close()
 
+# trying to graph histograms with Probability Density Function 
+sns.FacetGrid(iris, hue="Class", height=5) \
+.map(sns.distplot, "sepal_Length") \
+.add_legend()
 
+sns.FacetGrid(iris, hue="Class", height=5) \
+.map(sns.distplot, "sepal_Width") \
+.add_legend()
 
+sns.FacetGrid(iris, hue="Class", height=5) \
+.map(sns.distplot, "Petal_Length") \
+.add_legend()
 
+sns.FacetGrid(iris, hue="Class", height=5) \
+.map(sns.distplot, "Petal_Width") \
+.add_legend()
+plt.show()
 
