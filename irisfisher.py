@@ -76,22 +76,13 @@ sys.stdout = original_stdout
     
     # VISUALISATIONS OF THE IRIS DATA SET
 
-# pandas DataFrame.hist() plots the histograms of the columns on multiple subplots:
-
-
 iris.hist(alpha=0.8, bins=30, figsize=(12,8))
 plt.suptitle("Histogram of the Iris petal and sepal measurements")
-##plt.show()
-plt.savefig("histogram")
-
-iris.plot(kind="scatter" , x="sepal_Length" , y="sepal_Width" , color="green" , s=70)
-##plt.show()
-plt.savefig('scatter1')
+plt.show()
 
 
-iris.plot(kind="scatter" , x="Petal_Length" , y="Petal_Width" , color="red" , s=70)
-##plt.show()
-plt.savefig('plot2')
+
+
 
 sns.set(style="ticks", palette="pastel")
 
@@ -115,6 +106,18 @@ sns.pairplot(iris, hue='Class', palette="crest")
 plt.show()
 
 
+# Heatmap of correlations between attributes
+plt.figure(figsize=(8,8))
+sns.heatmap(iris.corr(), annot=True, cmap='Blues')
+plt.title('Correlation Between Attributes')
+plt.show()
+
+#  EXPLORING IRIS DATA SET BY SPECIES
+# There are many ways to filter the data
+
+
+# GROUP BY 
+
 print("Using pands groupby function to split the iris dataframe by Class of iris species \n")
 # Using groupby functions to look at statistics at the class / species level
 iris_grouped = iris.groupby("Class")
@@ -123,13 +126,49 @@ iris_grouped = iris.groupby("Class")
 iris.groupby("Class").count()
 print("The number of observations for each variable for each Iris species in the data set are as follows: \n \n",iris.groupby("Class").count())
 
+# Groupby Class of Iris plant and return the mean of the remaining columns in each group.
 
-# Heatmap of correlations between attributes
-plt.figure(figsize=(8,8))
-sns.heatmap(iris.corr(), annot=True, cmap='Blues')
-plt.title('Correlation Between Attributes')
-plt.savefig('heatmap')
-plt.close()
+print("The mean or average measurement for each group of Iris Species in the dataset is \n\n",iris.groupby('Class').mean())
+iris.groupby('Class').mean()
+# Group by Class of Iris plant and then return the first observations in each group
+iris.groupby("Class").first()
+print("The first observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").first())
+
+# Group by Class of Iris and then return the last observations in each group
+print("The last observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").last())
+iris.groupby("Class").last()
+
+# get the first 3 rows in each group 
+iris.groupby("Class").head(3)
+print("The first three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").head(3))
+
+# get the last 3 rows in each group
+iris.groupby("Class").tail(3)
+print("The last three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").tail(3))
+
+# get max of group values
+iris.groupby("Class").max()
+print("The maximum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").max())
+
+# get min of group values
+iris.groupby("Class").min()
+print("The minimum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").min())
+
+# There does not seem to be a range function to see the range of values so I am going to calculate these ranges here.
+# by taking the differences between the mimimum and the maximum values
+
+iris_ranges = iris_grouped.max() - iris_grouped.min()
+print("The range of the values in the dataset are as follows: \n",iris_ranges)
+
+# get mean of group values
+iris.groupby("Class").mean()
+
+# get median of group values
+iris.groupby("Class").median()
+
+print(iris_grouped.count())
+
+print(iris_grouped.mean())
 
 
 # trying to graph histograms with Probability Density Function 
@@ -148,5 +187,16 @@ sns.FacetGrid(iris, hue="Class", height=5) \
 sns.FacetGrid(iris, hue="Class", height=5) \
 .map(sns.distplot, "Petal_Width") \
 .add_legend()
+plt.show()
+
+iris = sns.load_dataset('iris')
+sns.lmplot( x="petal_length" , y="petal_width" , data=iris, fit_reg=False, hue='species' , legend=False)
+plt.legend(loc='lower right')
+plt.show()
+
+
+iris = sns.load_dataset('iris')
+sns.lmplot( x="sepal_length" , y="sepal_width" , data=iris, fit_reg=False, hue='species' , legend=False)
+plt.legend(loc='lower right')
 plt.show()
 
