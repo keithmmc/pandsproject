@@ -116,6 +116,11 @@ plt.show()
 # There are many ways to filter the data
 
 
+
+
+print(iris.gorupby("Class").describe().T)
+print("summary statistics for each Class of Iris in the data set \n")
+
 # GROUP BY 
 
 print("Using pands groupby function to split the iris dataframe by Class of iris species \n")
