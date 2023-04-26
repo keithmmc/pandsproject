@@ -1,13 +1,8 @@
 # pandsproject
 
+
 this is the project for the pands module in ATU. 
 
-the main libary used will be as followed 
-
-matplotlib
-seaborn
-pandas 
-numpy 
 
 
 in this project we will be researching the iris data set. this data set was introduced in 1936 by R.A. Fisher A British statistician and biologist in his paper "The use of multiple measurements in taxonomic problems". this data set is available from The UCI Machine Learning Repository. The UCI Machine Learning Repository states "the Iris dataset is widely used in pattern recognition learning. One class is linearly separable from the other two classes, which are not linearly separable from each other. The predicted attribute of the data set is the class of Iris plant to which each observation belongs".
@@ -33,5 +28,18 @@ Class:
 Iris Setosa
 Iris Versicolour
 Iris Virginica
+
+# <h1> the modules used are as followed  used will be as followed <h1> #
+
+matplotlib
+seaborn
+pandas 
+numpy 
+
+# <h1> investagating the dataset  <h1> #
+
+the first part of this project involves looking at the dataset and investagating it. I begin by setting up some print statements to check was the dataset loaded and also to allow me to return some data. I used the pandas module for this as it has a lot of great libries that can be used for exploring data. I began by looking at the number of the axes and dimionsions in the dataset I used the ndim atturibute to do this. I then used the shape attriubte to return information about axis dimensions of the the number or rows and columns in the table of data. This will show how many rows (containing observations) and columns (containing features/variables) in the Iris Data set. I then returned the size of the elements in the dataset using the size attrubute to return this. I then used the index atturibute to show the index which was automatically assigned when the dataFrame was created on reading in the csv file this gave the information on the columns and rows of the dataset. I then used the head and tail attrubute to return the first and last 10 elements of the dataset, this showed that I downloaded the CSV correctly. 
+
+# <p> the next step was to output infomration to a text file <p> # 
 
 
