@@ -29,6 +29,14 @@ Iris Setosa
 Iris Versicolour
 Iris Virginica
 
+# <h1> downloading the dataset </h1> #
+The Iris Data Set is available from the UC Irvine Machine Learning Repository at http://archive.ics.uci.edu/ml/datasets/Iris in csv. I used the following code to achieve this. 
+
+      csv_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+      # using the attribute information as the column names
+      col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Class']
+      iris =  pd.read_csv(csv_url, names = col_names)
+
 # <h1> the modules used are as followed  used will be as followed <h1> #
 
 matplotlib
