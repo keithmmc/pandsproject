@@ -32,93 +32,7 @@ print(iris.head(10))
 #returning the last ten rows of data to ensure that the file has loaded correctly
 print(iris.tail(10))
 
-
-###going to print the above information to a data file
-original_stdout = sys.stdout 
-
-#open the file iris.txt and begin to print the info
-with open("iris.txt", "a") as f:
-    sys.stdout = f 
-    print('\n************************ ANALYSIS OF THE IRIS DATASET *************************\n\n') 
-    print('\n************************ basic information on the dataset*********************/n/n')   
-    ##outputting the first ten rows of data followed by the last ten rows of data with a random sample
-    print("the columns for this dataset are as follows")
-    print(iris.columns)
-    print("printing the first 10 rows of data of the dataset")
-    print(iris.head(10))
-    print("printing the final 10 rows of the dataset")
-    print(iris.tail(10))
-    print (iris.sample(5))
-    print (iris[20:30])
-    print("\n**************************summery of the dataset**********************************/n/n")
-    ##Using the `unique()` method on the 'Class' column to show how many different class or species of Iris flower is in the data set
-    iris['Class'].unique()
-    species_type =iris['Class'].unique()
-    print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
-    iris["Class"].value_counts()
-    #getting the summery statistics of the dataset 
-    print(iris.describe())
-    print("\n*************************The number of null or missing values in the iris dataframe for each column**********\n ")
-    print(iris.isnull().sum())
-    print ('\n=============================== Duplicate Entries ==============================\n')
-    print (iris[iris.duplicated()])
-    print('\n============================= Median of Attributes ===========================\n') 
-    # Print the median of each of the attributes in tabular form
-    print(iris.median()) 
-    print('\n******************************Mean of Attributes******************************/n')
-    print(iris.mean())
-    print('\n******************************Max of Attributes******************************/n')
-    print(iris.max())
-    
-
-    
-sys.stdout = original_stdout
-    
-    # VISUALISATIONS OF THE IRIS DATA SET
-
-iris.hist(alpha=0.8, bins=30, figsize=(12,8))
-plt.suptitle("Histogram of the Iris petal and sepal measurements")
-plt.show()
-
-
-
-
-
-sns.set(style="ticks", palette="pastel")
-
-# plotting 4 plots on a 2 by 2 grid, do not want to share the y axis between plots. Setting the figure size 
-f, axes = plt.subplots(2, 2, sharey=False, figsize=(12, 8))
-# pass a panda Series as the x and y parameters to the boxplot. 
-# Using the Class column (categorical) and one of the sepal or petal measurements (numerical) for each subplot
-
-# setting the hue = Class so that the points will be coloured on the plot according to their Class/species type.
-sns.boxplot(x="Class", y="sepal_Length", data=iris, ax=axes[0,1])
-sns.boxplot(x="Class", y="sepal_Width", data=iris, ax=axes[1,1])
-sns.boxplot(x="Class", y="Petal_Length",data=iris, ax = axes[0,0])
-
-sns.boxplot(x="Class", y="Petal_Width",hue = "Class",data=iris, ax=axes[1,0])
-
-# adding a title to the plot
-f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
-
-sns.set(style="white", rc={'figure.figsize':(11.7,8.27)})
-sns.pairplot(iris, hue='Class', palette="crest")
-plt.show()
-
-
-# Heatmap of correlations between attributes
-plt.figure(figsize=(8,8))
-sns.heatmap(iris.corr(), annot=True, cmap='Blues')
-plt.title('Correlation Between Attributes')
-plt.show()
-
-#  EXPLORING IRIS DATA SET BY SPECIES
-# There are many ways to filter the data
-
-
-
-
-print(iris.gorupby("Class").describe().T)
+print(iris.groupby("Class").describe().T)
 print("summary statistics for each Class of Iris in the data set \n")
 
 # GROUP BY 
@@ -176,10 +90,93 @@ print(iris_grouped.count())
 print(iris_grouped.mean())
 
 
-# trying to graph histograms with Probability Density Function 
-sns.FacetGrid(iris, hue="Class", height=5) \
-.map(sns.distplot, "sepal_Length") \
-.add_legend()
+###going to print the above information to a data file
+original_stdout = sys.stdout 
+
+#open the file iris.txt and begin to print the info
+with open("iris.txt", "a") as f:
+    sys.stdout = f 
+    print('\n************************ ANALYSIS OF THE IRIS DATASET *************************\n\n') 
+    print('\n************************ basic information on the dataset*********************/n/n')   
+    ##outputting the first ten rows of data followed by the last ten rows of data with a random sample
+    print("the columns for this dataset are as follows")
+    print(iris.columns)
+    print("printing the first 10 rows of data of the dataset")
+    print(iris.head(10))
+    print("printing the final 10 rows of the dataset")
+    print(iris.tail(10))
+    print (iris.sample(5))
+    print (iris[20:30])
+    print("\n**************************summery of the dataset**********************************/n/n")
+    ##Using the `unique()` method on the 'Class' column to show how many different class or species of Iris flower is in the data set
+    iris['Class'].unique()
+    species_type =iris['Class'].unique()
+    print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
+    iris["Class"].value_counts()
+    #getting the summery statistics of the dataset 
+    print(iris.describe())
+    print("\n*************************The number of null or missing values in the iris dataframe for each column**********\n ")
+    print(iris.isnull().sum())
+    print ('\n=============================== Duplicate Entries ==============================\n')
+    print (iris[iris.duplicated()])
+    print('\n============================= Median of Attributes ===========================\n') 
+    # Print the median of each of the attributes in tabular form
+    print(iris.median()) 
+    print('\n******************************Mean of Attributes******************************/n')
+    print(iris.mean())
+    print('\n******************************Max of Attributes******************************/n')
+    print(iris.max())
+    
+
+    
+sys.stdout = original_stdout
+    
+# VISUALISATIONS OF THE IRIS DATA SET
+
+iris.hist(alpha=0.8, bins=30, figsize=(12,8))
+plt.suptitle("Histogram of the Iris petal and sepal measurements")
+plt.show()
+
+sns.set(style="ticks", palette="pastel")
+
+plt.title('Class Count')
+sns.countplot(iris['Class'])
+
+# plotting 4 plots on a 2 by 2 grid, do not want to share the y axis between plots. Setting the figure size 
+f, axes = plt.subplots(2, 2, sharey=False, figsize=(12, 8))
+# pass a panda Series as the x and y parameters to the boxplot. 
+# Using the Class column (categorical) and one of the sepal or petal measurements (numerical) for each subplot
+
+# setting the hue = Class so that the points will be coloured on the plot according to their Class/species type.
+sns.boxplot(x="Class", y="sepal_Length", data=iris, ax=axes[0,1])
+sns.boxplot(x="Class", y="sepal_Width", data=iris, ax=axes[1,1])
+sns.boxplot(x="Class", y="Petal_Length",data=iris, ax = axes[0,0])
+
+sns.boxplot(x="Class", y="Petal_Width",hue = "Class",data=iris, ax=axes[1,0])
+
+# adding a title to the plot
+f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
+
+sns.set(style="white", rc={'figure.figsize':(11.7,8.27)})
+sns.pairplot(iris, hue='Class', palette="crest")
+plt.show()
+
+
+# Heatmap of correlations between attributes
+plt.figure(figsize=(8,8))
+sns.heatmap(iris.corr(), annot=True, cmap='Blues')
+plt.title('Correlation Between Attributes')
+plt.show()
+
+
+fig, axes = plt.subplots(2, 2, figsize=(16,10))
+sns.violinplot( y='Petal_Width', x= 'Class', data=iris,  ax=axes[0, 0])
+sns.violinplot( y='Petal_Length', x= 'Class', data=iris, ax=axes[0, 1])
+sns.violinplot( y='sepal_Length', x= 'Class', data=iris,  ax=axes[1, 0])
+sns.violinplot( y='sepal_Width', x= 'Class', data=iris, ax=axes[1, 1])
+plt.show()
+
+
 
 sns.FacetGrid(iris, hue="Class", height=5) \
 .map(sns.distplot, "sepal_Width") \
@@ -204,4 +201,6 @@ iris = sns.load_dataset('iris')
 sns.lmplot( x="sepal_length" , y="sepal_width" , data=iris, fit_reg=False, hue='species' , legend=False)
 plt.legend(loc='lower right')
 plt.show()
+
+
 
