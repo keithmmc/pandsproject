@@ -89,6 +89,28 @@ print(iris_grouped.count())
 
 print(iris_grouped.mean())
 
+# Having used groupby to the get the summary statistics by species, I will add a column to the DataFrame to calculate the differences in means.
+# use groupby with "Class" variable and then get the mean of each class for each measurement variable.
+# create a dataframe from grouping the iris dataframe by class and calculating the means for each class
+# Transpose the rows and columns
+means = iris.groupby("Class").mean().T
+# only getting the columns up to Iris-versicolor to match Table II in Fisher's paper
+means.loc[:,'Class':'Iris-versicolor'] 
+
+# Instead of doing it for two species, I will do it for all the three species. 
+# add a new column for the difference in means between the Versicolor and Setosa species
+# I have changed the difference in means to show the absolute differences in means
+means['diff(Versicolor - Setosa)'] = abs(means['Iris-versicolor'] - means['Iris-setosa'])
+
+# add a new column for the difference in means between the Versicolor and Virginica species
+means['diff(Versicolor - Virginica)'] = abs(means['Iris-versicolor'] - means['Iris-virginica'])
+
+# add a new column for the difference in means between the Versicolor and Virginica species
+means['diff(Virginica - Setosa) '] = abs(means['Iris-virginica'] - means['Iris-setosa'])
+
+print("The differences in means between classes of Iris are shown in the last three columns \n")
+print(means)
+
 
 ###going to print the above information to a data file
 original_stdout = sys.stdout 
@@ -201,6 +223,4 @@ iris = sns.load_dataset('iris')
 sns.lmplot( x="sepal_length" , y="sepal_width" , data=iris, fit_reg=False, hue='species' , legend=False)
 plt.legend(loc='lower right')
 plt.show()
-
-
 
