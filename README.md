@@ -162,3 +162,128 @@ I used the following code to do this
     print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
     iris["Class"].value_counts()
 
+Once I had this information I wanted to output for detailed information on the dataframe I did this using the describe command, I then returned information on columns and rows that had missing information and duplicated information. 
+
+I used the following code to do this 
+ print(iris.describe())
+ print(iris.isnull().sum())
+ print (iris[iris.duplicated()]) 
+
+ once I had this information I wanted to get the information on the mean max and medain information of each iris class in the dataframe, 
+
+ I used the following code to achieve this 
+ print(iris.median()) 
+ print(iris.mean())
+ print(iris.max())
+
+ once I had this information outputted I closed off the text file. 
+
+ the following information is displayed in a text file. 
+
+ 
+
+
+************************* ANALYSIS OF THE IRIS DATASET *************************
+
+
+
+************************* basic information on the dataset*********************/n/n
+the columns for this dataset are as follows
+Index(['sepal_Length', 'sepal_Width', 'Petal_Length', 'Petal_Width', 'Class'], dtype='object')
+printing the first 10 rows of data of the dataset
+   sepal_Length  sepal_Width  Petal_Length  Petal_Width        Class
+0           5.1          3.5           1.4          0.2  Iris-setosa
+1           4.9          3.0           1.4          0.2  Iris-setosa
+2           4.7          3.2           1.3          0.2  Iris-setosa
+3           4.6          3.1           1.5          0.2  Iris-setosa
+4           5.0          3.6           1.4          0.2  Iris-setosa
+5           5.4          3.9           1.7          0.4  Iris-setosa
+6           4.6          3.4           1.4          0.3  Iris-setosa
+7           5.0          3.4           1.5          0.2  Iris-setosa
+8           4.4          2.9           1.4          0.2  Iris-setosa
+9           4.9          3.1           1.5          0.1  Iris-setosa
+printing the final 10 rows of the dataset
+     sepal_Length  sepal_Width  Petal_Length  Petal_Width           Class
+140           6.7          3.1           5.6          2.4  Iris-virginica
+141           6.9          3.1           5.1          2.3  Iris-virginica
+142           5.8          2.7           5.1          1.9  Iris-virginica
+143           6.8          3.2           5.9          2.3  Iris-virginica
+144           6.7          3.3           5.7          2.5  Iris-virginica
+145           6.7          3.0           5.2          2.3  Iris-virginica
+146           6.3          2.5           5.0          1.9  Iris-virginica
+147           6.5          3.0           5.2          2.0  Iris-virginica
+148           6.2          3.4           5.4          2.3  Iris-virginica
+149           5.9          3.0           5.1          1.8  Iris-virginica
+     sepal_Length  sepal_Width  Petal_Length  Petal_Width            Class
+103           6.3          2.9           5.6          1.8   Iris-virginica
+144           6.7          3.3           5.7          2.5   Iris-virginica
+136           6.3          3.4           5.6          2.4   Iris-virginica
+1             4.9          3.0           1.4          0.2      Iris-setosa
+63            6.1          2.9           4.7          1.4  Iris-versicolor
+    sepal_Length  sepal_Width  Petal_Length  Petal_Width        Class
+20           5.4          3.4           1.7          0.2  Iris-setosa
+21           5.1          3.7           1.5          0.4  Iris-setosa
+22           4.6          3.6           1.0          0.2  Iris-setosa
+23           5.1          3.3           1.7          0.5  Iris-setosa
+24           4.8          3.4           1.9          0.2  Iris-setosa
+25           5.0          3.0           1.6          0.2  Iris-setosa
+26           5.0          3.4           1.6          0.4  Iris-setosa
+27           5.2          3.5           1.5          0.2  Iris-setosa
+28           5.2          3.4           1.4          0.2  Iris-setosa
+29           4.7          3.2           1.6          0.2  Iris-setosa
+
+**************************summery of the dataset**********************************/n/n
+The following are the three class or species types of iris in the data set 
+ Iris-setosa Iris-versicolor Iris-virginica
+       sepal_Length  sepal_Width  Petal_Length  Petal_Width
+count    150.000000   150.000000    150.000000   150.000000
+mean       5.843333     3.054000      3.758667     1.198667
+std        0.828066     0.433594      1.764420     0.763161
+min        4.300000     2.000000      1.000000     0.100000
+25%        5.100000     2.800000      1.600000     0.300000
+50%        5.800000     3.000000      4.350000     1.300000
+75%        6.400000     3.300000      5.100000     1.800000
+max        7.900000     4.400000      6.900000     2.500000
+
+***The number of null or missing values in the iris dataframe for each column**********
+ 
+sepal_Length    0
+sepal_Width     0
+Petal_Length    0
+Petal_Width     0
+Class           0
+dtype: int64
+
+=============================== Duplicate Entries==============================
+
+     sepal_Length  sepal_Width  Petal_Length  Petal_Width           Class
+34            4.9          3.1           1.5          0.1     Iris-setosa
+37            4.9          3.1           1.5          0.1     Iris-setosa
+142           5.8          2.7           5.1          1.9  Iris-virginica
+
+============================= Median of Attributes ===========================
+
+sepal_Length    5.80
+sepal_Width     3.00
+Petal_Length    4.35
+Petal_Width     1.30
+dtype: float64
+
+******************************Mean of Attributes******************************/n
+sepal_Length    5.843333
+sepal_Width     3.054000
+Petal_Length    3.758667
+Petal_Width     1.198667
+dtype: float64
+
+******************************Max of Attributes******************************/n
+sepal_Length               7.9
+sepal_Width                4.4
+Petal_Length               6.9
+Petal_Width                2.5
+Class           Iris-virginica
+dtype: object
+
+
+
+
