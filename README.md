@@ -3,7 +3,14 @@
 
 this is the project for the pands module in ATU. 
 
+# <h1> the modules used are as followed  used will be as followed <h1> #
 
+matplotlib this is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
+seaborn this is used for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures. It provides a high-level interface for creating nice looking and informative plots. It has many useful features for examining relationships between multiple variables such as those in the Iris dataset.
+pandas this provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. It is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type. This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column.
+numpy  the fundamental package for scientific computing in Python. It is a Python library that provides a multidimensional array object
+
+# <h1> the data set <h1> #
 
 in this project we will be researching the iris data set. this data set was introduced in 1936 by R.A. Fisher A British statistician and biologist in his paper "The use of multiple measurements in taxonomic problems". this data set is available from The UCI Machine Learning Repository. The UCI Machine Learning Repository states "the Iris dataset is widely used in pattern recognition learning. One class is linearly separable from the other two classes, which are not linearly separable from each other. The predicted attribute of the data set is the class of Iris plant to which each observation belongs".
 
@@ -39,12 +46,7 @@ I used the following code to achieve this.
       col_names = ['Sepal_Length','Sepal_Width','Petal_Length','Petal_Width','Class']
       iris =  pd.read_csv(csv_url, names = col_names)
 
-# <h1> the modules used are as followed  used will be as followed <h1> #
 
-matplotlib
-seaborn
-pandas 
-numpy 
 
 # <h1> investagating the dataset  <h1> #
 once I had the CSV file downloaded, I ran some commands using Panda library this has many functions that can be used to explore the Iris data set. Having imported the iris data set from a csv file into a pandas, to help return data this would show that I had downloaded the csv file correctly. This would also help give am overview of the Fisher Iris data set including some summary statistics that describe the data at a high level. 
@@ -284,6 +286,79 @@ Petal_Width                2.5
 Class           Iris-virginica
 dtype: object
 
+# Visualising the Iris data set # 
 
+In this section I will discuss visulising the dataset, the first plot I created was a histogram, This histogram returned the Petal length petal width sepal length and sepal width, The histogram for the petal lengths show a clear group of observations having petal lengths that are much smaller than the rest of the observations and similarly so with the petal widths. The sepal lengths show quite a bit of variation with a number of peaks while sepal widths seem to be centred around 3 cms but with a few smaller peaks at both sides of 3 cms. To create this hsitogram I used the following the code. 
+
+iris.hist(alpha=0.8, bins=30, figsize=(12,8))
+plt.suptitle("Histogram of the Iris petal and sepal measurements")
+plt.show()
+
+The next visualtion I ran was to get the breakdown of each class using seaborn, this should show that there is exactly 50 per count for each class. I used the following code to achieve this 
+sns.set(style="ticks", palette="pastel")
+plt.title('Class Count')
+sns.countplot(iris['Class'])
+
+I then used a boxplot again using seaborn to show various statistics in one go, including the median, quantiles, interquartile range, outliers etc. The length of the box is the interquartile range and measures the variability in the data set. The interquartile range (IQR) is the middle 50% of the data and can show the spread or variation of the data. The whiskers show if the data is skewed in one direction or the other. The median is the line through the box.
+
+Along with showing the distribution of values within each category, boxplots also allow for comparisons across the various classes. The hue is set to 'Class' so that the points will be coloured on the plot according to their Class/species type. I used the following the code to achieve this. 
+
+f, axes = plt.subplots(2, 2, sharey=False, figsize=(12, 8))
+sns.boxplot(x="Class", y="sepal_Length", data=iris, ax=axes[0,1])
+sns.boxplot(x="Class", y="sepal_Width", data=iris, ax=axes[1,1])
+sns.boxplot(x="Class", y="Petal_Length",data=iris, ax = axes[0,0])
+sns.boxplot(x="Class", y="Petal_Width",hue = "Class",data=iris, ax=axes[1,0])
+f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
+
+After I created the boxplots I wanted to get to visualise relationships between each variable and produce a matrix of relationships between each attribute in the dataset. I used pairplots to do this. I used the following code to achieve this 
+
+sns.set(style="white", rc={'figure.figsize':(11.7,8.27)})
+sns.pairplot(iris, hue='Class', palette="crest")
+plt.show()
+
+After this I used a heat map to show the correlations between the four classes in the dataset this heatmap should show that the sepal length and sepal width are slightly corrlated with each other, I used the following code to achieve this 
+plt.figure(figsize=(8,8))
+sns.heatmap(iris.corr(), annot=True, cmap='Blues')
+plt.title('Correlation Between Attributes')
+plt.show()
+
+after this I wanted used a violin plot. This will show the density of the length and width in the classes. The thinner part denotes that there is less density whereas the fatter part conveys higher density. The following information can be seen from this,Setosa is having less distribution and density in case of petal length & width
+Versicolor is distributed in a average manner and average features in case of petal length & width Virginica is highly distributed with large no .of values and features in case of sepal length & width High density values are depicting the mean/median values, for example: Iris Setosa has highest density at 5.0 cm ( sepal length feature) which is also the median value(5.0) as per the table. I used the following code to achive this. 
+
+fig, axes = plt.subplots(2, 2, figsize=(16,10))
+sns.violinplot( y='Petal_Width', x= 'Class', data=iris,  ax=axes[0, 0])
+sns.violinplot( y='Petal_Length', x= 'Class', data=iris, ax=axes[0, 1])
+sns.violinplot( y='sepal_Length', x= 'Class', data=iris,  ax=axes[1, 0])
+sns.violinplot( y='sepal_Width', x= 'Class', data=iris, ax=axes[1, 1])
+plt.show()
+
+
+
+
+
+
+# references # 
+https://archive.ics.uci.edu/ml/datasets/iris
+https://en.wikipedia.org/wiki/Iris_flower_data_set
+https://matplotlib.org/index.html
+https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
+https://www.geeksforgeeks.org/box-plot-and-histogram-exploration-on-iris-data/
+https://www.kaggle.com/code/crbelhekar619/iris-dataset-eda-visualization/notebook
+https://www.earthdatascience.org/courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/run-calculations-summary-statistics-pandas-dataframes/
+https://pandas.pydata.org/pandas-docs/stable/getting_started/index.html
+https://pandas.pydata.org/docs/user_guide/10min.html
+https://seaborn.pydata.org/
+https://www.w3schools.com/python/pandas/pandas_analyzing.asp
+https://www.w3schools.com/python/numpy/numpy_random_seaborn.asp#
+https://realpython.com/python-histograms/
+https://python-graph-gallery.com/92-control-color-in-seaborn-heatmaps
+https://www.python-graph-gallery.com/92-control-color-in-seaborn-heatmaps
+https://www.section.io/engineering-education/seaborn-tutorial/
+https://realpython.com/pandas-groupby/
+https://www.pycodemates.com/2022/05/iris-dataset-classification-with-python.html
+https://towardsdatascience.com/classification-basics-walk-through-with-the-iris-data-set-d46b0331bf82
+https://medium.com/analytics-vidhya/exploratory-data-analysis-iris-dataset-4df6f045cda
+https://towardsdatascience.com/getting-more-value-from-the-pandas-value-counts-aa17230907a6
+https://pythonbasics.org/seaborn-boxplot/
 
 
