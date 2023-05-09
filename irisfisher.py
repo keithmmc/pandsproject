@@ -32,14 +32,16 @@ print(iris.head(10))
 #returning the last ten rows of data to ensure that the file has loaded correctly
 print(iris.tail(10))
 
-print(iris.groupby("Class").describe().T)
-print("summary statistics for each Class of Iris in the data set \n")
+
 
 # GROUP BY 
 
 print("Using pands groupby function to split the iris dataframe by Class of iris species \n")
 # Using groupby functions to look at statistics at the class / species level
 iris_grouped = iris.groupby("Class")
+
+print(iris.groupby("Class").describe().T)
+print("summary statistics for each Class of Iris in the data set \n")
 
 # Compute count of group, excluding missing values.
 iris.groupby("Class").count()
@@ -159,10 +161,12 @@ iris.hist(alpha=0.8, bins=30, figsize=(12,8))
 plt.suptitle("Histogram of the Iris petal and sepal measurements")
 plt.show()
 
-sns.set(style="ticks", palette="pastel")
 
+
+sns.set(style="ticks", palette="pastel")
 plt.title('Class Count')
 sns.countplot(iris['Class'])
+
 
 # plotting 4 plots on a 2 by 2 grid, do not want to share the y axis between plots. Setting the figure size 
 f, axes = plt.subplots(2, 2, sharey=False, figsize=(12, 8))
