@@ -333,7 +333,47 @@ sns.violinplot( y='sepal_Width', x= 'Class', data=iris, ax=axes[1, 1])
 plt.show()
 
 
+After I created the violin plots I wanted to return histograms with Probability Density Function. 
 
+I used the following code to achieve this 
+sns.FacetGrid(iris, hue="Class", height=5) \
+.map(sns.distplot, "sepal_Width") \
+.add_legend()
+
+sns.FacetGrid(iris, hue="Class", height=5) \
+.map(sns.distplot, "sepal_Length") \
+.add_legend()
+
+sns.FacetGrid(iris, hue="Class", height=5) \
+.map(sns.distplot, "Petal_Length") \
+.add_legend()
+
+sns.FacetGrid(iris, hue="Class", height=5) \
+.map(sns.distplot, "Petal_Width") \
+.add_legend()
+plt.show()
+
+this will show the following Plot 1 shows that there is a significant amount of overlap between the species on sepal length, so it is not an effective Classification feature
+Plot 2 shows that there is even higher overlap between the species on sepal width, so it is not an effective Classification feature
+Plot 3 shows that petal length is a good Classification feature as it clearly separates the species . The overlap is extremely less (between Versicolor and Virginica) , Setosa is well separated from the rest two
+Just like Plot 3, Plot 4 also shows that petal width is a good Classification feature . The overlap is significantly less (between Versicolor and Virginica) , Setosa is well separated from the rest two
+
+the last plot I wanted to create was a scatter plot to show the comparsion between the length and width of each class. 
+
+I used the following code to achieve this 
+iris = sns.load_dataset('iris')
+sns.lmplot( x="petal_length" , y="petal_width" , data=iris, fit_reg=False, hue='species' , legend=False)
+plt.legend(loc='lower right')
+plt.show()
+
+
+
+iris = sns.load_dataset('iris')
+sns.lmplot( x="sepal_length" , y="sepal_width" , data=iris, fit_reg=False, hue='species' , legend=False)
+plt.legend(loc='lower right')
+plt.show()
+
+this will show 
 
 
 
