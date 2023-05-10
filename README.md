@@ -3,12 +3,61 @@
 
 this is the project for the pands module in ATU. 
 
-# <h1> the modules used are as followed  used will be as followed <h1> #
 
-matplotlib this is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
-seaborn this is used for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures. It provides a high-level interface for creating nice looking and informative plots. It has many useful features for examining relationships between multiple variables such as those in the Iris dataset.
-pandas this provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. It is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type. This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column.
-numpy  the fundamental package for scientific computing in Python. It is a Python library that provides a multidimensional array object
+
+Python and other software tools used in this project
+The purpose of this project is to investigate the Fisher Iris data set described above using Python code. Python is a high level interpreted general purpose programming language. The Python interpreter and its extensive standard library are freely available to all. Along with the Python standard library, there are many libraries that enhance the usage of Python and make it a powerful tool for performing data analytics and machine learning.
+
+The free and open source Visual Studio code editor was used to write the Python code and the Markdown content. Visual Studio Code can be downloaded here.
+
+How to download this repository
+Go to the URL for the repository on GitHub at https://github.com/keithmmc/pandsproject.git
+Click the green Clone or download button
+Python 3
+To be able to run this script, you need to have Python 3 installed. You can check this on the command line using python -V. If you do not have Python 3 installed go to https://www.python.org/downloads/ and follow the instructions there.
+
+Python comes with a library of standard modules that can perform a wide range of tasks. These modules can be imported using the import function. In addition to the standard modules, there are many third-party packages which enhance it's functionality and I use some of these packages in this project outlined below, in particular the pandas package which provides data structures and data analysis tools for the Python programming langauge. These packages can be also be imported but they first need to be installed on your system. See Installing Packages of the Python Documentation. pip is the package installer for Python and can be used to install packages from the PyPI repository of software for the Python programming language.
+
+pandas installation instructions recommend installing the package as part of the Anaconda distribution, a cross platform distribution for data analysis and scientific computing using conda install pandas. The seaborn package can be installed using pip install seaborn or conda install seaborn. seaborn installation instructions
+
+The pandas library is the main python library being used in this project. According to the pandas package overview
+
+pandas is a Python package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.
+
+pandas provides high-performance, easy-to-use data structures and data analysis tools for the Python programming language. It is designed for working with data that is in a tabular format containing an ordered collection of columns where each column can have a different value type. This makes it ideal for exploring a structured tabular dataset such as Iris which contains several numerical columns and one categorical column.
+
+seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.
+
+The seaborn library is used for making statistical graphics in Python. It is built on top of matplotlib and closely integrated with pandas data structures. It provides a high-level interface for creating nice looking and informative plots. It has many useful features for examining relationships between multiple variables such as those in the Iris dataset.
+
+matplotlib.org
+
+Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms
+
+How to run the Python code
+To run the Python script, first navigate to the folder downloaded from this repository.
+
+At the command line enter python <program_name> for example: $ python project_iris.py
+
+The Python program can also be run inside the environment of an iPython session using the %run command. % run project_iris.py
+I used ipython to run interactive code. This was very useful in testing sections of the script, rather than running the entire Python script for each change.
+
+There are several plots produced by the script. I have saved these to .png files in the images folder of the repository. The plots can be printed by uncommenting the 'plt.show()` command. Some of these plots are shown in this Readme file below.
+
+The output of the Python script (excluding plot images) can be saved to a text file by appending >'filename.txt'.
+
+Loading Python libraries
+The libraries mentioned above must first be imported before they can be used by the script.
+
+The pandas library is imported at the very start of the script using import pandas as pd where pd is a shorter alias name that is used by convention to save having to write pandas each time it is used. Therefore, wherever pd is used in the script, it is referring to the pandas library. Similarly, the seaborn library is imported using the alias sn and thereafter referred to using sn. Once these packages are loaded, all of the available functions can be used by the script.
+
+import pandas as pd  
+import matplotlib.pyplot as plt 
+import seaborn as sns
+Getting help in Python
+To get help on any python command, use the python help function as outlined in the Python help command document with the command in parentheses.
+For example, help(pd) will show help on the python pandas package while help(pd.DataFrame.describe()) provides help on the describe function of the pandas DataFrame.
+The documentation pages for each of the python packages that are used in this project provided details of all the commands for that package. I found these resources quite valuable for this project and referred to them extensively over the course of this project, both when looking for a function to do something in particular but also for getting a start with the packages as the documentation pages are quite comprehensive and outline the different functions of the various packages.
 
 # <h1> the data set <h1> #
 
@@ -26,7 +75,7 @@ This data set through the years has become one of the main datasets used for lea
 
 Dataset Description
 The information that is included in the dataset is as follows:
-
+# <image> image.png <image> image.png <image> image.png <image>
 Sepal length in cm
 Sepal width in cm
 Petal length in cm
