@@ -6,7 +6,7 @@ import seaborn as sns
 import pandas as pd
 import sys
 
-
+#setting up the csv file for reading I am breaking this down into columns this will be read by pandas 
 
 cols = ['sepal_Length', 'sepal_Width','Petal_Length','Petal_Width','Class']
 csv = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
@@ -14,11 +14,11 @@ csv = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
 iris =  pd.read_csv(csv, names = cols)
 
 
-#returning some information about the dimensions of the dataset 
+# using the ndim command to return some information about the dimensions of the dataset 
 print(f"The iris DataFrame has {iris.ndim} dimensions.\n")
-#returning information about the rows and columns of the dataset
+#using the shape command to return some information about the rows and columns of the dataset
 print(f"The Iris data set consists of {iris.shape[0]} rows and {iris.shape[1]} columns corresponding to the rows and columns of the csv file.\n")
-#returning the number of elements in the dataset
+#using the size command to return the number of elements in the dataset
 print(f"The iris DataFrame has {iris.size} elements in total.\n")
 #returning the index if the dataset
 print(f" The index of the DataFrame is: ", iris.index)
@@ -27,9 +27,9 @@ print(f" The index of the DataFrame is: ", iris.index)
 print(f" The index of the DataFrame is: ", iris.index)
 print("The index for the rows are ",*iris.index)
 print(f"The column labels of the iris DataFrame are: \n", *iris.columns, sep = "   ")
-#returning the first ten rows of data to ensure that the file has loaded correctly
+#returning the first ten rows of the dataset
 print(iris.head(10))
-#returning the last ten rows of data to ensure that the file has loaded correctly
+#returning the last ten rows of the dataset
 print(iris.tail(10))
 
 
@@ -37,9 +37,9 @@ print(iris.tail(10))
 # GROUP BY 
 
 print("Using pands groupby function to split the iris dataframe by Class of iris species \n")
-# Using groupby functions to look at statistics at the class / species level
+# Using groupby command to look at statistics at the class / species level
 iris_grouped = iris.groupby("Class")
-
+#describing the class using the groupby command again 
 print(iris.groupby("Class").describe().T)
 print("summary statistics for each Class of Iris in the data set \n")
 
@@ -81,39 +81,6 @@ print("The minimum value for each measurement for each Class of Iris plant in th
 iris_ranges = iris_grouped.max() - iris_grouped.min()
 print("The range of the values in the dataset are as follows: \n",iris_ranges)
 
-# get mean of group values
-iris.groupby("Class").mean()
-
-# get median of group values
-iris.groupby("Class").median()
-
-print(iris_grouped.count())
-
-print(iris_grouped.mean())
-
-# Having used groupby to the get the summary statistics by species, I will add a column to the DataFrame to calculate the differences in means.
-# use groupby with "Class" variable and then get the mean of each class for each measurement variable.
-# create a dataframe from grouping the iris dataframe by class and calculating the means for each class
-# Transpose the rows and columns
-means = iris.groupby("Class").mean().T
-# only getting the columns up to Iris-versicolor to match Table II in Fisher's paper
-means.loc[:,'Class':'Iris-versicolor'] 
-
-# Instead of doing it for two species, I will do it for all the three species. 
-# add a new column for the difference in means between the Versicolor and Setosa species
-# I have changed the difference in means to show the absolute differences in means
-means['diff(Versicolor - Setosa)'] = abs(means['Iris-versicolor'] - means['Iris-setosa'])
-
-# add a new column for the difference in means between the Versicolor and Virginica species
-means['diff(Versicolor - Virginica)'] = abs(means['Iris-versicolor'] - means['Iris-virginica'])
-
-# add a new column for the difference in means between the Versicolor and Virginica species
-means['diff(Virginica - Setosa) '] = abs(means['Iris-virginica'] - means['Iris-setosa'])
-
-print("The differences in means between classes of Iris are shown in the last three columns \n")
-print(means)
-
-
 ###going to print the above information to a data file
 original_stdout = sys.stdout 
 
@@ -122,7 +89,7 @@ with open("iris.txt", "a") as f:
     sys.stdout = f 
     print('\n************************ ANALYSIS OF THE IRIS DATASET *************************\n\n') 
     print('\n************************ basic information on the dataset*********************/n/n')   
-    ##outputting the first ten rows of data followed by the last ten rows of data with a random sample
+    ##outputting the first ten rows of data followed by the last ten rows of data with a random sample and I am also returning the column information also using the splice function to return information on columns 20-30 
     print("the columns for this dataset are as follows")
     print(iris.columns)
     print("printing the first 10 rows of data of the dataset")
@@ -132,37 +99,42 @@ with open("iris.txt", "a") as f:
     print (iris.sample(5))
     print (iris[20:30])
     print("\n**************************summery of the dataset**********************************/n/n")
-    ##Using the `unique()` method on the 'Class' column to show how many different class or species of Iris flower is in the data set
+    ##Using the `unique()` method on the 'Class' column to show how many different class is in the data set
     iris['Class'].unique()
     species_type =iris['Class'].unique()
     print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
+    #getting the value of each class
     iris["Class"].value_counts()
     #getting the summery statistics of the dataset 
     print(iris.describe())
     print("\n*************************The number of null or missing values in the iris dataframe for each column**********\n ")
+    #returning the number of columns that are null
     print(iris.isnull().sum())
     print ('\n=============================== Duplicate Entries ==============================\n')
+    #returning the number of duplicate attributes in the dataset
     print (iris[iris.duplicated()])
     print('\n============================= Median of Attributes ===========================\n') 
-    # Print the median of each of the attributes in tabular form
+    #returning the median of each of the attributes in tabular form
     print(iris.median()) 
     print('\n******************************Mean of Attributes******************************/n')
+   #returning the mean of the attributes in tabular form
     print(iris.mean())
     print('\n******************************Max of Attributes******************************/n')
+#returning the max of the attributes in tabular form
     print(iris.max())
     
 
-    
+#closing of the text file  
 sys.stdout = original_stdout
     
 # VISUALISATIONS OF THE IRIS DATA SET
-
+# using the pandas DataFrame.hist() to plot the histograms of the columns on multiple subplots this will show the petal and sepal measurements 
 iris.hist(alpha=0.8, bins=30, figsize=(12,8))
 plt.suptitle("Histogram of the Iris petal and sepal measurements")
 plt.show()
 
 
-
+#using seabourn to return the count of each class 
 sns.set(style="ticks", palette="pastel")
 plt.title('Class Count')
 sns.countplot(iris['Class'])
@@ -170,7 +142,7 @@ sns.countplot(iris['Class'])
 
 # plotting 4 plots on a 2 by 2 grid, do not want to share the y axis between plots. Setting the figure size 
 f, axes = plt.subplots(2, 2, sharey=False, figsize=(12, 8))
-# pass a panda Series as the x and y parameters to the boxplot. 
+# passing a panda Series as the x and y parameters to the boxplot. 
 # Using the Class column (categorical) and one of the sepal or petal measurements (numerical) for each subplot
 
 # setting the hue = Class so that the points will be coloured on the plot according to their Class/species type.
@@ -183,6 +155,7 @@ sns.boxplot(x="Class", y="Petal_Width",hue = "Class",data=iris, ax=axes[1,0])
 # adding a title to the plot
 f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
 
+#using a pairplot to get the relationship of the attributes 
 sns.set(style="white", rc={'figure.figsize':(11.7,8.27)})
 sns.pairplot(iris, hue='Class', palette="crest")
 plt.show()
@@ -194,7 +167,7 @@ sns.heatmap(iris.corr(), annot=True, cmap='Blues')
 plt.title('Correlation Between Attributes')
 plt.show()
 
-
+#using a violingplot to return the length and width of each class
 fig, axes = plt.subplots(2, 2, figsize=(16,10))
 sns.violinplot( y='Petal_Width', x= 'Class', data=iris,  ax=axes[0, 0])
 sns.violinplot( y='Petal_Length', x= 'Class', data=iris, ax=axes[0, 1])
@@ -206,6 +179,10 @@ plt.show()
 
 sns.FacetGrid(iris, hue="Class", height=5) \
 .map(sns.distplot, "sepal_Width") \
+.add_legend()
+
+sns.FacetGrid(iris, hue="Class", height=5) \
+.map(sns.distplot, "sepal_Length") \
 .add_legend()
 
 sns.FacetGrid(iris, hue="Class", height=5) \
