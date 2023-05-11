@@ -197,7 +197,8 @@ print(iris.groupby("Class").describe().T)
 Using pands groupby function to split the iris dataframe by Class of iris species  
 
 Class               Iris-setosa  Iris-versicolor  Iris-virginica
-sepal_Length count    50.000000        50.000000       50.000000
+sepal_Length count   
+          50.000000        50.000000       50.000000
 
              mean      5.006000         5.936000        6.588000
 
@@ -213,7 +214,8 @@ sepal_Length count    50.000000        50.000000       50.000000
 
              max       5.800000         7.000000        7.900000
 
-sepal_Width  count    50.000000        50.000000       50.000000
+sepal_Width  count   
+             50.000000        50.000000       50.000000
 
              mean      3.418000         2.770000        2.974000
 
@@ -229,7 +231,8 @@ sepal_Width  count    50.000000        50.000000       50.000000
 
              max       4.400000         3.400000        3.800000
 
-Petal_Length count    50.000000        50.000000       50.000000
+Petal_Length count    
+             50.000000        50.000000       50.000000
 
              mean      1.464000         4.260000        5.552000
 
@@ -258,7 +261,7 @@ Petal_Width  count    50.000000        50.000000       50.000000
              50%       0.200000         1.300000        2.000000
 
              75%       0.300000         1.500000        2.300000
-             
+
              max       0.600000         1.800000        2.500000
 
 print("summary statistics for each Class of Iris in the data set \n")
