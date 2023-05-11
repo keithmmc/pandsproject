@@ -175,8 +175,7 @@ sns.violinplot( y='sepal_Length', x= 'Class', data=iris,  ax=axes[1, 0])
 sns.violinplot( y='sepal_Width', x= 'Class', data=iris, ax=axes[1, 1])
 plt.show()
 
-
-
+#creating pdf graphs this will output four graphs for each column
 sns.FacetGrid(iris, hue="Class", height=5) \
 .map(sns.distplot, "sepal_Width") \
 .add_legend()
@@ -194,6 +193,7 @@ sns.FacetGrid(iris, hue="Class", height=5) \
 .add_legend()
 plt.show()
 
+#creating scstterplots the first is for petal class the second for sepal class
 iris = sns.load_dataset('iris')
 sns.lmplot( x="petal_length" , y="petal_width" , data=iris, fit_reg=False, hue='species' , legend=False)
 plt.legend(loc='lower right')
