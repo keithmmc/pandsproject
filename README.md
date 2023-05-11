@@ -139,7 +139,7 @@ The column labels of the iris DataFrame are:
 
 print(iris.head(10))
 
-   sepal_Length  sepal_Width  Petal_Length  Petal_Width        Class
+sepal_Length  sepal_Width  Petal_Length  Petal_Width        Class
 
 0           5.1          3.5           1.4          0.2  Iris-setosa
 
@@ -162,17 +162,25 @@ print(iris.head(10))
 9           4.9          3.1           1.5          0.1  Iris-setosa
 
 print(iris.tail(10))
-
-     sepal_Length  sepal_Width  Petal_Length  Petal_Width           Class
+ sepal_Length  sepal_Width  Petal_Length  Petal_Width           Class
 140           6.7          3.1           5.6          2.4  Iris-virginica
+
 141           6.9          3.1           5.1          2.3  Iris-virginica
+
 142           5.8          2.7           5.1          1.9  Iris-virginica
+
 143           6.8          3.2           5.9          2.3  Iris-virginica
+
 144           6.7          3.3           5.7          2.5  Iris-virginica
+
 145           6.7          3.0           5.2          2.3  Iris-virginica
+
 146           6.3          2.5           5.0          1.9  Iris-virginica
+
 147           6.5          3.0           5.2          2.0  Iris-virginica
+
 148           6.2          3.4           5.4          2.3  Iris-virginica
+
 149           5.9          3.0           5.1          1.8  Iris-virginica
 
  
@@ -190,36 +198,67 @@ Using pands groupby function to split the iris dataframe by Class of iris specie
 
 Class               Iris-setosa  Iris-versicolor  Iris-virginica
 sepal_Length count    50.000000        50.000000       50.000000
+
              mean      5.006000         5.936000        6.588000
+
              std       0.352490         0.516171        0.635880
+
              min       4.300000         4.900000        4.900000
+
              25%       4.800000         5.600000        6.225000
+
              50%       5.000000         5.900000        6.500000
+
              75%       5.200000         6.300000        6.900000
+
              max       5.800000         7.000000        7.900000
+
 sepal_Width  count    50.000000        50.000000       50.000000
+
              mean      3.418000         2.770000        2.974000
+
              std       0.381024         0.313798        0.322497
+
              min       2.300000         2.000000        2.200000
+
              25%       3.125000         2.525000        2.800000
+
              50%       3.400000         2.800000        3.000000
+
              75%       3.675000         3.000000        3.175000
+
              max       4.400000         3.400000        3.800000
+
 Petal_Length count    50.000000        50.000000       50.000000
+
              mean      1.464000         4.260000        5.552000
+
              std       0.173511         0.469911        0.551895
+
              min       1.000000         3.000000        4.500000
+
              25%       1.400000         4.000000        5.100000
+
              50%       1.500000         4.350000        5.550000
+
              75%       1.575000         4.600000        5.875000
+
              max       1.900000         5.100000        6.900000
+
 Petal_Width  count    50.000000        50.000000       50.000000
+
              mean      0.244000         1.326000        2.026000
+
              std       0.107210         0.197753        0.274650
+
              min       0.100000         1.000000        1.400000
+
              25%       0.200000         1.200000        1.800000
+
              50%       0.200000         1.300000        2.000000
+
              75%       0.300000         1.500000        2.300000
+             
              max       0.600000         1.800000        2.500000
 
 print("summary statistics for each Class of Iris in the data set \n")
