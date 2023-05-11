@@ -187,21 +187,26 @@ print("The last observation in each Class of Iris plant in the Iris dataset are:
 
 
 iris.groupby("Class").head(3) print("The first three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").head(3))
+![Alt text](Capture11.png)
 
 
 iris.groupby("Class").tail(3) print("The last three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").tail(3))
+![Alt text](Capture12.PNG)
+
 
 
 
 iris.groupby("Class").max() print("The maximum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").max())
 
-
+![Alt text](Capture13.PNG)
 
 iris.groupby("Class").min() print("The minimum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").min())
 
-
+![Alt text](Capture14.PNG)
 
 iris_ranges = iris_grouped.max() - iris_grouped.min() print("The range of the values in the dataset are as follows: \n",iris_ranges)
+
+![Alt text](Capture15.PNG)
 
 
 
