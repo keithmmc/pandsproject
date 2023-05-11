@@ -134,12 +134,22 @@ The index for the rows are  0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149
 
 print(f"The column labels of the iris DataFrame are: \n", *iris.columns, sep = "   ")
-The column labels of the iris DataFrame are: 
+this shows that The column labels of the iris DataFrame are: 
    sepal_Length   sepal_Width   Petal_Length   Petal_Width   Class
 
 print(iris.head(10))
-this
-
+this will show the first columns are part of the Iris-setosa class
+   sepal_Length  sepal_Width  Petal_Length  Petal_Width        Class
+0           5.1          3.5           1.4          0.2  Iris-setosa
+1           4.9          3.0           1.4          0.2  Iris-setosa
+2           4.7          3.2           1.3          0.2  Iris-setosa
+3           4.6          3.1           1.5          0.2  Iris-setosa
+4           5.0          3.6           1.4          0.2  Iris-setosa
+5           5.4          3.9           1.7          0.4  Iris-setosa
+6           4.6          3.4           1.4          0.3  Iris-setosa
+7           5.0          3.4           1.5          0.2  Iris-setosa
+8           4.4          2.9           1.4          0.2  Iris-setosa
+9           4.9          3.1           1.5          0.1  Iris-setosa
 
 print(iris.tail(10))
 
