@@ -160,14 +160,19 @@ iris_grouped = iris.groupby("Class")
 
 print(iris.groupby("Class").describe().T) 
 Using pands groupby function to split the iris dataframe by Class of iris species  
-![Alt text](Capture3.PNG)
-![Alt text](Capture4.PNG)
-![Alt text](Capture5.PNG)
-![Alt text](Capture6.PNG)
+
 
 print("summary statistics for each Class of Iris in the data set \n")
 
+<img width="418" alt="Capture3" src="https://github.com/keithmmc/pandsproject/assets/100876230/628ed9af-9a05-4e95-9d4e-8272e8a5c0fb">
 
+<img width="379" alt="Capture4" src="https://github.com/keithmmc/pandsproject/assets/100876230/3be6c36a-7c0d-4847-82e2-29d39ccc7b6d">
+ 
+
+<img width="380" alt="Capture5" src="https://github.com/keithmmc/pandsproject/assets/100876230/29bd6ff9-96c9-4f7a-b46c-ce3dcd60d01c">
+       
+
+<img width="369" alt="Capture6" src="https://github.com/keithmmc/pandsproject/assets/100876230/acf734df-84f3-48e6-9e42-0de3f5c6e584">
 
 iris.groupby("Class").count() print("The number of observations for each variable for each Iris species in the data set are as follows: \n \n",iris.groupby("Class").count())
 summary statistics for each Class of Iris in the data set
@@ -175,38 +180,44 @@ summary statistics for each Class of Iris in the data set
 The number of observations for each variable for each Iris species in the data set 
 are as follows:
 
+<img width="443" alt="Capture7" src="https://github.com/keithmmc/pandsproject/assets/100876230/5388b201-177e-4484-889b-37327ee1d736">
 
 iris.groupby("Class").first() print("The first observation in each Class of Iris plant in the Iris dataset are: \n \n",iris.groupby("Class").first())
-![Alt text](Capture7.PNG)
 
+<img width="449" alt="Capture9" src="https://github.com/keithmmc/pandsproject/assets/100876230/3fe6ae5d-d260-4613-b7f5-cc787b430efb">
 
 print("The last observation in each Class of Iris plant in the Iris dataset are: \n \n",iris.groupby("Class").last()) iris.groupby("Class").last()
-![Alt text](Capture10.PNG)
 
 
+
+<img width="449" alt="Capture10" src="https://github.com/keithmmc/pandsproject/assets/100876230/a5db4f2d-11ff-475b-93ca-77b1bcb720f4">
 
 
 iris.groupby("Class").head(3) print("The first three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").head(3))
-![Alt text](Capture11.png)
+
+<img width="460" alt="Capture11" src="https://github.com/keithmmc/pandsproject/assets/100876230/c7b8ebe6-0e3c-413d-a678-16e8d62b9a47">
 
 
 iris.groupby("Class").tail(3) print("The last three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").tail(3))
-![Alt text](Capture12.PNG)
 
 
+
+<img width="441" alt="Capture12" src="https://github.com/keithmmc/pandsproject/assets/100876230/3a534d55-3972-4d83-b97d-f1d5c329b6e8">
 
 
 iris.groupby("Class").max() print("The maximum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").max())
 
-![Alt text](Capture13.PNG)
+<img width="477" alt="Capture13" src="https://github.com/keithmmc/pandsproject/assets/100876230/37ba0255-8ad0-4a11-aca9-2cd9249dbd50">
 
 iris.groupby("Class").min() print("The minimum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").min())
 
-![Alt text](Capture14.PNG)
+<img width="482" alt="Capture14" src="https://github.com/keithmmc/pandsproject/assets/100876230/93111259-b567-4c36-89da-3a151ef10817">
+
 
 iris_ranges = iris_grouped.max() - iris_grouped.min() print("The range of the values in the dataset are as follows: \n",iris_ranges)
 
-![Alt text](Capture15.PNG)
+
+<img width="446" alt="Capture15" src="https://github.com/keithmmc/pandsproject/assets/100876230/bd155247-5c1c-437e-a822-4ac09d456677">
 
 
 
@@ -216,6 +227,9 @@ After I had done some investagating into the dataframe, I wanted to save some of
 # <h1> Visualising the Iris data set <h1> # 
 
 In this section I will discuss visulising the dataset, the first plot I created was a histogram, This histogram returned the Petal length petal width sepal length and sepal width, The histogram for the petal lengths show a clear group of observations having petal lengths that are much smaller than the rest of the observations and similarly so with the petal widths. The sepal lengths show quite a bit of variation with a number of peaks while sepal widths seem to be centred around 3 cms but with a few smaller peaks at both sides of 3 cms. To create this hsitogram I used the following the code. 
+      
+      
+<p>
 
 iris.hist(alpha=0.8, bins=30, figsize=(12,8))
 plt.suptitle("Histogram of the Iris petal and sepal measurements")
