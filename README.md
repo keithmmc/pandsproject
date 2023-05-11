@@ -3,7 +3,7 @@
 
 
 # <h1> Python and other software tools used in this project <h1>
-this is the project for the pands module in ATU. 
+
 
 Python and other software tools used in this project
 The purpose of this project is to investigate the Fisher Iris data set described above using Python code. Python is a high level interpreted general purpose programming language. The Python interpreter and its extensive standard library are freely available to all. Along with the Python standard library, there are many libraries that enhance the usage of Python and make it a powerful tool for performing data analytics and machine learning.
