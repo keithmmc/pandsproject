@@ -223,6 +223,40 @@ iris_ranges = iris_grouped.max() - iris_grouped.min() print("The range of the va
 
 After I had done some investagating into the dataframe, I wanted to save some of this information into a text file. To this I imported the sys module and opened the file in append mode. 
 
+this text file first printed the row information along with the first 10 and final 10 rows, with a random sample of five rows and a splice function to return rows 20 to 30. it then returned information on the three rows null rows duplicated rows with mean and max values. 
+
+code to achieve this 
+
+    print("the columns for this dataset are as follows")
+    print(iris.columns)
+    print("printing the first 10 rows of data of the dataset")
+    print(iris.head(10))
+
+    print(iris.tail(10))
+    print (iris.sample(5))
+    print (iris[20:30])
+ 
+    iris['Class'].unique()
+    species_type =iris['Class'].unique()
+    print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
+    
+    iris["Class"].value_counts()
+   
+    print(iris.describe())
+   
+    print(iris.isnull().sum())
+   
+    print (iris[iris.duplicated()])
+
+    print(iris.median()) 
+
+    print(iris.mean())
+  
+    print(iris.max())
+
+
+    
+
 
 # <h1> Visualising the Iris data set <h1> # 
 
