@@ -160,12 +160,14 @@ iris_grouped = iris.groupby("Class")
 
 print(iris.groupby("Class").describe().T) 
 Using pands groupby function to split the iris dataframe by Class of iris species  
-
-these commands show that all three classes have a mean of count of 50, all and ava
-
-
+![Alt text](Capture3.PNG)
+![Alt text](Capture4.PNG)
+![Alt text](Capture5.PNG)
+![Alt text](Capture6.PNG)
 
 print("summary statistics for each Class of Iris in the data set \n")
+
+
 
 iris.groupby("Class").count() print("The number of observations for each variable for each Iris species in the data set are as follows: \n \n",iris.groupby("Class").count())
 summary statistics for each Class of Iris in the data set
@@ -175,10 +177,12 @@ are as follows:
 
 
 iris.groupby("Class").first() print("The first observation in each Class of Iris plant in the Iris dataset are: \n \n",iris.groupby("Class").first())
-
+![Alt text](Capture7.PNG)
 
 
 print("The last observation in each Class of Iris plant in the Iris dataset are: \n \n",iris.groupby("Class").last()) iris.groupby("Class").last()
+![Alt text](Capture10.PNG)
+
 
 
 
@@ -211,12 +215,16 @@ In this section I will discuss visulising the dataset, the first plot I created 
 iris.hist(alpha=0.8, bins=30, figsize=(12,8))
 plt.suptitle("Histogram of the Iris petal and sepal measurements")
 plt.show()
+![Alt text](histo.png)
+
 
 # <p> #
 The next visualtion I ran was to get the breakdown of each class using seaborn, this should show that there is exactly 50 per count for each class. I used the following code to achieve this 
 sns.set(style="ticks", palette="pastel")
 plt.title('Class Count')
 sns.countplot(iris['Class'])
+![Alt text](heatmap.png)
+
 
 
 
@@ -230,18 +238,24 @@ sns.boxplot(x="Class", y="sepal_Width", data=iris, ax=axes[1,1])
 sns.boxplot(x="Class", y="Petal_Length",data=iris, ax = axes[0,0])
 sns.boxplot(x="Class", y="Petal_Width",hue = "Class",data=iris, ax=axes[1,0])
 f.suptitle("Boxplot of the Petal and Sepal measurements by Iris plant Species")
+![Alt text](boxplant.png)
+
 
 After I created the boxplots I wanted to get to visualise relationships between each variable and produce a matrix of relationships between each attribute in the dataset. I used pairplots to do this. I used the following code to achieve this 
 
 sns.set(style="white", rc={'figure.figsize':(11.7,8.27)})
 sns.pairplot(iris, hue='Class', palette="crest")
 plt.show()
+![Alt text](pairplot.png)
+
 
 After this I used a heat map to show the correlations between the four classes in the dataset this heatmap should show that the sepal length and sepal width are slightly corrlated with each other, I used the following code to achieve this 
 plt.figure(figsize=(8,8))
 sns.heatmap(iris.corr(), annot=True, cmap='Blues')
 plt.title('Correlation Between Attributes')
 plt.show()
+![Alt text](heatmap.png)
+
 
 after this I wanted used a violin plot. This will show the density of the length and width in the classes. The thinner part denotes that there is less density whereas the fatter part conveys higher density. The following information can be seen from this,Setosa is having less distribution and density in case of petal length & width
 Versicolor is distributed in a average manner and average features in case of petal length & width Virginica is highly distributed with large no .of values and features in case of sepal length & width High density values are depicting the mean/median values, for example: Iris Setosa has highest density at 5.0 cm ( sepal length feature) which is also the median value(5.0) as per the table. I used the following code to achive this. 
@@ -252,6 +266,7 @@ sns.violinplot( y='Petal_Length', x= 'Class', data=iris, ax=axes[0, 1])
 sns.violinplot( y='sepal_Length', x= 'Class', data=iris,  ax=axes[1, 0])
 sns.violinplot( y='sepal_Width', x= 'Class', data=iris, ax=axes[1, 1])
 plt.show()
+![Alt text](violin.png)
 
 
 After I created the violin plots I wanted to return histograms with Probability Density Function. 
@@ -278,6 +293,10 @@ this will show the following Plot 1 shows that there is a significant amount of 
 Plot 2 shows that there is even higher overlap between the classes on sepal width, so it is not an effective Classification feature
 Plot 3 shows that petal length is a good Classification feature as it clearly separates the species . The overlap is extremely less (between Versicolor and Virginica) , Setosa is well separated from the rest two
 Just like Plot 3, Plot 4 also shows that petal width is a good Classification feature . The overlap is significantly less (between Versicolor and Virginica) , Setosa is well separated from the rest two
+![Alt text](pdf1.png)
+![Alt text](pdf2.png)
+![Alt text](pdf3.png)
+![Alt text](pdf4.png)
 
 the last plot I wanted to create was a scatter plot to show the comparsion between the length and width of each class. 
 
@@ -292,6 +311,10 @@ iris = sns.load_dataset('iris')
 sns.lmplot( x="sepal_length" , y="sepal_width" , data=iris, fit_reg=False, hue='species' , legend=False)
 plt.legend(loc='lower right')
 plt.show()
+![Alt text](scatter.png)
+![Alt text](scatter2.png)
+
+
 
 
 
