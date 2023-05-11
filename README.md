@@ -140,15 +140,25 @@ The column labels of the iris DataFrame are:
 print(iris.head(10))
 
    sepal_Length  sepal_Width  Petal_Length  Petal_Width        Class
+
 0           5.1          3.5           1.4          0.2  Iris-setosa
+
 1           4.9          3.0           1.4          0.2  Iris-setosa
+
 2           4.7          3.2           1.3          0.2  Iris-setosa
+
 3           4.6          3.1           1.5          0.2  Iris-setosa
+
 4           5.0          3.6           1.4          0.2  Iris-setosa
+
 5           5.4          3.9           1.7          0.4  Iris-setosa
+
 6           4.6          3.4           1.4          0.3  Iris-setosa
+
 7           5.0          3.4           1.5          0.2  Iris-setosa
+
 8           4.4          2.9           1.4          0.2  Iris-setosa
+
 9           4.9          3.1           1.5          0.1  Iris-setosa
 
 print(iris.tail(10))
@@ -450,6 +460,8 @@ https://realpython.com/python-histograms/
 https://python-graph-gallery.com/92-control-color-in-seaborn-heatmaps
 
 https://www.python-graph-gallery.com/92-control-color-in-seaborn-heatmaps
+
+https://www.geeksforgeeks.org/pandas-groupby/
 
 https://www.section.io/engineering-education/seaborn-tutorial/
 
