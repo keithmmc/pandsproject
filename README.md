@@ -139,16 +139,17 @@ this shows that The column labels of the iris DataFrame are:
 
 print(iris.head(10))
 this will show the first columns are part of the Iris-setosa class
-![Alt text](Capture.PNG)
+
+<img width="404" alt="Capture" src="https://github.com/keithmmc/pandsproject/assets/100876230/c02170bb-8f81-4739-a51d-9b175d11f284">
 
 
 print(iris.tail(10))
  
 this is show that the last ten columns are belong to the Iris-Virginica class
-![Alt text](Capture1.PNG)
+      
+<img width="413" alt="Capture1" src="https://github.com/keithmmc/pandsproject/assets/100876230/6ece434b-6d28-4200-a236-075392b7cb2a">
 
- 
-<p>
+ <p>
 
 after I had this information I wanted to get subsets of the iris data for each class in the dataframe. To acheive this I used the groupby command, this spilt the data into groups and then returns the information. 
 
