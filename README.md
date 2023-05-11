@@ -139,12 +139,14 @@ this shows that The column labels of the iris DataFrame are:
 
 print(iris.head(10))
 this will show the first columns are part of the Iris-setosa class
-![Alt text](../../../Pictures/Capture.PNG)
+![Alt text](Capture.PNG)
+
+
 print(iris.tail(10))
  
 this is show that the last ten columns are belong to the Iris-Virginica class
+![Alt text](Capture1.PNG)
 
-![Alt text](../../../Pictures/Capture1.PNG)
  
 <p>
 
