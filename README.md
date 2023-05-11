@@ -162,6 +162,7 @@ sepal_Length  sepal_Width  Petal_Length  Petal_Width  Class
 9   4.9          3.1           1.5          0.1  Iris-setosa
 
 print(iris.tail(10))
+
 sepal_Length  sepal_Width  Petal_Length  Petal_Width  Class
 140   6.7          3.1           5.6          2.4  Iris-virginica
 
