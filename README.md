@@ -221,7 +221,7 @@ iris_ranges = iris_grouped.max() - iris_grouped.min() print("The range of the va
 
 
 
-After I had done some investagating into the dataframe, I wanted to save some of this information into a text file. To this I imported the sys module and opened the file in append mode. 
+After I had done some investagating into the dataframe, I wanted to save some of this information into a text file. To do this I imported the sys module and opened the file in append mode. 
 
 this text file first printed the row information along with the first 10 and final 10 rows, with a random sample of five rows and a splice function to return rows 20 to 30. it then returned information on the three rows null rows duplicated rows with mean and max values. 
 
