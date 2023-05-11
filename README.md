@@ -171,61 +171,158 @@ print(iris.tail(10))
 after I had this information I wanted to get subsets of the iris data for each class in the dataframe. To acheive this I used the groupby command, this spilt the data into groups and then returns the information. 
 
 I used the following code to do this 
-
 print("Using pands groupby function to split the iris dataframe by Class of iris species \n")
-
-
 
 iris_grouped = iris.groupby("Class")
 
-print(iris.groupby("Class").describe().T)
+print(iris.groupby("Class").describe().T) 
+Using pands groupby function to split the iris dataframe by Class of iris species  
+
+Class               Iris-setosa  Iris-versicolor  Iris-virginica
+sepal_Length count    50.000000        50.000000       50.000000
+             mean      5.006000         5.936000        6.588000
+             std       0.352490         0.516171        0.635880
+             min       4.300000         4.900000        4.900000
+             25%       4.800000         5.600000        6.225000
+             50%       5.000000         5.900000        6.500000
+             75%       5.200000         6.300000        6.900000
+             max       5.800000         7.000000        7.900000
+sepal_Width  count    50.000000        50.000000       50.000000
+             mean      3.418000         2.770000        2.974000
+             std       0.381024         0.313798        0.322497
+             min       2.300000         2.000000        2.200000
+             25%       3.125000         2.525000        2.800000
+             50%       3.400000         2.800000        3.000000
+             75%       3.675000         3.000000        3.175000
+             max       4.400000         3.400000        3.800000
+Petal_Length count    50.000000        50.000000       50.000000
+             mean      1.464000         4.260000        5.552000
+             std       0.173511         0.469911        0.551895
+             min       1.000000         3.000000        4.500000
+             25%       1.400000         4.000000        5.100000
+             50%       1.500000         4.350000        5.550000
+             75%       1.575000         4.600000        5.875000
+             max       1.900000         5.100000        6.900000
+Petal_Width  count    50.000000        50.000000       50.000000
+             mean      0.244000         1.326000        2.026000
+             std       0.107210         0.197753        0.274650
+             min       0.100000         1.000000        1.400000
+             25%       0.200000         1.200000        1.800000
+             50%       0.200000         1.300000        2.000000
+             75%       0.300000         1.500000        2.300000
+             max       0.600000         1.800000        2.500000
+
 print("summary statistics for each Class of Iris in the data set \n")
 
+iris.groupby("Class").count() print("The number of observations for each variable for each Iris species in the data set are as follows: \n \n",iris.groupby("Class").count())
+summary statistics for each Class of Iris in the data set
 
-iris.groupby("Class").count()
-print("The number of observations for each variable for each Iris species in the data set are as follows: \n \n",iris.groupby("Class").count())
+The number of observations for each variable for each Iris species in the data set 
+are as follows:
 
+                  sepal_Length  sepal_Width  Petal_Length  Petal_Width
+Class
+Iris-setosa                50           50            50           50
+Iris-versicolor            50           50            50           50
+Iris-virginica             50           50            50           50
 
+print("The mean or average measurement for each group of Iris Species in the dataset is \n\n",iris.groupby('Class').mean()) iris.groupby('Class').mean()
 
-print("The mean or average measurement for each group of Iris Species in the dataset is \n\n",iris.groupby('Class').mean())
-iris.groupby('Class').mean()
+The mean or average measurement for each group of Iris Species in the dataset is 
 
-iris.groupby("Class").first()
-print("The first observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").first())
+                  sepal_Length  sepal_Width  Petal_Length  Petal_Width
+Class
+Iris-setosa             5.006        3.418         1.464        0.244
+Iris-versicolor         5.936        2.770         4.260        1.326
+Iris-virginica          6.588        2.974         5.552        2.026
+iris.groupby("Class").first() print("The first observation in each Class of Iris plant in the Iris dataset are: \n \n",iris.groupby("Class").first())
 
-print("The last observation in each Class of Iris plant in the Iris dataset are: \n  \n",iris.groupby("Class").last())
-iris.groupby("Class").last()
+The first observation in each Class of Iris plant in the Iris dataset are: 
 
+                  sepal_Length  sepal_Width  Petal_Length  Petal_Width
+Class
+Iris-setosa               5.1          3.5           1.4          0.2
+Iris-versicolor           7.0          3.2           4.7          1.4
+Iris-virginica            6.3          3.3           6.0          2.5
 
-iris.groupby("Class").head(3)
-print("The first three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").head(3))
+print("The last observation in each Class of Iris plant in the Iris dataset are: \n \n",iris.groupby("Class").last()) iris.groupby("Class").last()
 
+The last observation in each Class of Iris plant in the Iris dataset are:
 
-iris.groupby("Class").tail(3)
-print("The last three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").tail(3))
+                  sepal_Length  sepal_Width  Petal_Length  Petal_Width
+Class
+Iris-setosa               5.0          3.3           1.4          0.2
+Iris-versicolor           5.7          2.8           4.1          1.3
+Iris-virginica            5.9          3.0           5.1          1.8
 
-iris.groupby("Class").max()
-print("The maximum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").max())
+iris.groupby("Class").head(3) print("The first three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").head(3))
 
-iris.groupby("Class").min()
-print("The minimum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").min())
+The first three rows for each Class of Iris plant in the Iris dataset are: 
 
+      sepal_Length  sepal_Width  Petal_Length  Petal_Width            Class
+0             5.1          3.5           1.4          0.2      Iris-setosa
+1             4.9          3.0           1.4          0.2      Iris-setosa
+2             4.7          3.2           1.3          0.2      Iris-setosa
+50            7.0          3.2           4.7          1.4  Iris-versicolor
+51            6.4          3.2           4.5          1.5  Iris-versicolor
+52            6.9          3.1           4.9          1.5  Iris-versicolor
+100           6.3          3.3           6.0          2.5   Iris-virginica
+101           5.8          2.7           5.1          1.9   Iris-virginica
+102           7.1          3.0           5.9          2.1   Iris-virginica
 
+iris.groupby("Class").tail(3) print("The last three rows for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").tail(3))
 
-iris_ranges = iris_grouped.max() - iris_grouped.min()
-print("The range of the values in the dataset are as follows: \n",iris_ranges)
+The last three rows for each Class of Iris plant in the Iris dataset are:
 
-iris.groupby("Class").mean()
+      sepal_Length  sepal_Width  Petal_Length  Petal_Width            Class
+47            4.6          3.2           1.4          0.2      Iris-setosa
+48            5.3          3.7           1.5          0.2      Iris-setosa
+49            5.0          3.3           1.4          0.2      Iris-setosa
+97            6.2          2.9           4.3          1.3  Iris-versicolor
+98            5.1          2.5           3.0          1.1  Iris-versicolor
+99            5.7          2.8           4.1          1.3  Iris-versicolor
+147           6.5          3.0           5.2          2.0   Iris-virginica
+148           6.2          3.4           5.4          2.3   Iris-virginica
+149           5.9          3.0           5.1          1.8   Iris-virginica
 
-iris.groupby("Class").median()
+iris.groupby("Class").max() print("The maximum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").max())
 
-print(iris_grouped.count())
+The maximum value for each measurement for each Class of Iris plant in the Iris dataset are:
 
-print(iris_grouped.mean())
+                  sepal_Length  sepal_Width  Petal_Length  Petal_Width
+Class
+Iris-setosa               5.8          4.4           1.9          0.6
+Iris-versicolor           7.0          3.4           5.1          1.8
+Iris-virginica            7.9          3.8           6.9          2.5
 
-means = iris.groupby("Class").mean().T
+iris.groupby("Class").min() print("The minimum value for each measurement for each Class of Iris plant in the Iris dataset are: \n\n",iris.groupby("Class").min())
 
+The minimum value for each measurement for each Class of Iris plant in the Iris dataset are:
 
+                  sepal_Length  sepal_Width  Petal_Length  Petal_Width
+Class
+Iris-setosa               4.3          2.3           1.0          0.1
+Iris-versicolor           4.9          2.0           3.0          1.0
+Iris-virginica            4.9          2.2           4.5          1.4
+
+iris_ranges = iris_grouped.max() - iris_grouped.min() print("The range of the values in the dataset are as follows: \n",iris_ranges)
+
+The range of the values in the dataset are as follows:
+                  sepal_Length  sepal_Width  Petal_Length  Petal_Width
+Class
+Iris-setosa               1.5          2.1           0.9          0.5
+Iris-versicolor           2.1          1.4           2.1          0.8
+Iris-virginica            3.0          1.6           2.4          1.1
+                 sepal_Length  sepal_Width  Petal_Length  Petal_Width
+Class
+Iris-setosa                50           50            50           50
+Iris-versicolor            50           50            50           50
+Iris-virginica             50           50            50           50
+                 sepal_Length  sepal_Width  Petal_Length  Petal_Width
+Class
+Iris-setosa             5.006        3.418         1.464        0.244
+Iris-versicolor         5.936        2.770         4.260        1.326
+Iris-virginica          6.588        2.974         5.552        2.026
 
 # <h1> the next step was to output infomration to a text file <h1> # 
 After I had done some investagating into the dataframe, I wanted to save some of this information into a text file. To this I imported the sys module and opened the file in append mode. 
@@ -261,215 +358,8 @@ I used the following code to do this
  print(iris.isnull().sum())
  print (iris[iris.duplicated()]) 
 
- once I had this information I wanted to get the information on the mean max and medain information of each iris class in the dataframe, 
-
- I used the following code to achieve this 
- print(iris.median()) 
- print(iris.mean())
- print(iris.max())
-
+ 
  once I had this information outputted I closed off the text file. 
-
-output of this text file is as follows 
-************************ basic information on the dataset*********************/n/n
-the columns for this dataset are as follows
-Index(['sepal_Length', 'sepal_Width', 'Petal_Length', 'Petal_Width', 'Class'], dtype='object')
-printing the first 10 rows of data of the dataset
-   sepal_Length  sepal_Width  Petal_Length  Petal_Width        Class
-0           5.1          3.5           1.4          0.2  Iris-setosa
-1           4.9          3.0           1.4          0.2  Iris-setosa
-2           4.7          3.2           1.3          0.2  Iris-setosa
-3           4.6          3.1           1.5          0.2  Iris-setosa
-4           5.0          3.6           1.4          0.2  Iris-setosa
-5           5.4          3.9           1.7          0.4  Iris-setosa
-6           4.6          3.4           1.4          0.3  Iris-setosa
-7           5.0          3.4           1.5          0.2  Iris-setosa
-8           4.4          2.9           1.4          0.2  Iris-setosa
-9           4.9          3.1           1.5          0.1  Iris-setosa
-printing the final 10 rows of the dataset
-     sepal_Length  sepal_Width  Petal_Length  Petal_Width           Class
-140           6.7          3.1           5.6          2.4  Iris-virginica
-141           6.9          3.1           5.1          2.3  Iris-virginica
-142           5.8          2.7           5.1          1.9  Iris-virginica
-143           6.8          3.2           5.9          2.3  Iris-virginica
-144           6.7          3.3           5.7          2.5  Iris-virginica
-145           6.7          3.0           5.2          2.3  Iris-virginica
-146           6.3          2.5           5.0          1.9  Iris-virginica
-147           6.5          3.0           5.2          2.0  Iris-virginica
-148           6.2          3.4           5.4          2.3  Iris-virginica
-149           5.9          3.0           5.1          1.8  Iris-virginica
-     sepal_Length  sepal_Width  Petal_Length  Petal_Width            Class
-145           6.7          3.0           5.2          2.3   Iris-virginica
-66            5.6          3.0           4.5          1.5  Iris-versicolor
-138           6.0          3.0           4.8          1.8   Iris-virginica
-130           7.4          2.8           6.1          1.9   Iris-virginica
-59            5.2          2.7           3.9          1.4  Iris-versicolor
-    sepal_Length  sepal_Width  Petal_Length  Petal_Width        Class
-20           5.4          3.4           1.7          0.2  Iris-setosa
-21           5.1          3.7           1.5          0.4  Iris-setosa
-22           4.6          3.6           1.0          0.2  Iris-setosa
-23           5.1          3.3           1.7          0.5  Iris-setosa
-24           4.8          3.4           1.9          0.2  Iris-setosa
-25           5.0          3.0           1.6          0.2  Iris-setosa
-26           5.0          3.4           1.6          0.4  Iris-setosa
-27           5.2          3.5           1.5          0.2  Iris-setosa
-28           5.2          3.4           1.4          0.2  Iris-setosa
-29           4.7          3.2           1.6          0.2  Iris-setosa
-
-**************************summery of the dataset**********************************/n/n
-The following are the three class or species types of iris in the data set 
- Iris-setosa Iris-versicolor Iris-virginica
-       sepal_Length  sepal_Width  Petal_Length  Petal_Width
-count    150.000000   150.000000    150.000000   150.000000
-mean       5.843333     3.054000      3.758667     1.198667
-std        0.828066     0.433594      1.764420     0.763161
-min        4.300000     2.000000      1.000000     0.100000
-25%        5.100000     2.800000      1.600000     0.300000
-50%        5.800000     3.000000      4.350000     1.300000
-75%        6.400000     3.300000      5.100000     1.800000
-max        7.900000     4.400000      6.900000     2.500000
-
-*************************The number of null or missing values in the iris dataframe for each column**********
- 
-sepal_Length    0
-sepal_Width     0
-Petal_Length    0
-Petal_Width     0
-Class           0
-dtype: int64
-
-=============================== Duplicate Entries ==============================
-
-     sepal_Length  sepal_Width  Petal_Length  Petal_Width           Class
-34            4.9          3.1           1.5          0.1     Iris-setosa
-37            4.9          3.1           1.5          0.1     Iris-setosa
-142           5.8          2.7           5.1          1.9  Iris-virginica
-
-============================= Median of Attributes ===========================
-
-sepal_Length    5.80
-sepal_Width     3.00
-Petal_Length    4.35
-Petal_Width     1.30
-dtype: float64
-
-******************************Mean of Attributes******************************/n
-sepal_Length    5.843333
-sepal_Width     3.054000
-Petal_Length    3.758667
-Petal_Width     1.198667
-dtype: float64
-
-******************************Max of Attributes******************************/n
-sepal_Length               7.9
-sepal_Width                4.4
-Petal_Length               6.9
-Petal_Width                2.5
-Class           Iris-virginica
-dtype: object
-
-************************ ANALYSIS OF THE IRIS DATASET *************************
-
-
-
-************************ basic information on the dataset*********************/n/n
-the columns for this dataset are as follows
-Index(['sepal_Length', 'sepal_Width', 'Petal_Length', 'Petal_Width', 'Class'], dtype='object')
-printing the first 10 rows of data of the dataset
-   sepal_Length  sepal_Width  Petal_Length  Petal_Width        Class
-0           5.1          3.5           1.4          0.2  Iris-setosa
-1           4.9          3.0           1.4          0.2  Iris-setosa
-2           4.7          3.2           1.3          0.2  Iris-setosa
-3           4.6          3.1           1.5          0.2  Iris-setosa
-4           5.0          3.6           1.4          0.2  Iris-setosa
-5           5.4          3.9           1.7          0.4  Iris-setosa
-6           4.6          3.4           1.4          0.3  Iris-setosa
-7           5.0          3.4           1.5          0.2  Iris-setosa
-8           4.4          2.9           1.4          0.2  Iris-setosa
-9           4.9          3.1           1.5          0.1  Iris-setosa
-printing the final 10 rows of the dataset
-     sepal_Length  sepal_Width  Petal_Length  Petal_Width           Class
-140           6.7          3.1           5.6          2.4  Iris-virginica
-141           6.9          3.1           5.1          2.3  Iris-virginica
-142           5.8          2.7           5.1          1.9  Iris-virginica
-143           6.8          3.2           5.9          2.3  Iris-virginica
-144           6.7          3.3           5.7          2.5  Iris-virginica
-145           6.7          3.0           5.2          2.3  Iris-virginica
-146           6.3          2.5           5.0          1.9  Iris-virginica
-147           6.5          3.0           5.2          2.0  Iris-virginica
-148           6.2          3.4           5.4          2.3  Iris-virginica
-149           5.9          3.0           5.1          1.8  Iris-virginica
-    sepal_Length  sepal_Width  Petal_Length  Petal_Width            Class
-57           4.9          2.4           3.3          1.0  Iris-versicolor
-69           5.6          2.5           3.9          1.1  Iris-versicolor
-55           5.7          2.8           4.5          1.3  Iris-versicolor
-66           5.6          3.0           4.5          1.5  Iris-versicolor
-80           5.5          2.4           3.8          1.1  Iris-versicolor
-    sepal_Length  sepal_Width  Petal_Length  Petal_Width        Class
-20           5.4          3.4           1.7          0.2  Iris-setosa
-21           5.1          3.7           1.5          0.4  Iris-setosa
-22           4.6          3.6           1.0          0.2  Iris-setosa
-23           5.1          3.3           1.7          0.5  Iris-setosa
-24           4.8          3.4           1.9          0.2  Iris-setosa
-25           5.0          3.0           1.6          0.2  Iris-setosa
-26           5.0          3.4           1.6          0.4  Iris-setosa
-27           5.2          3.5           1.5          0.2  Iris-setosa
-28           5.2          3.4           1.4          0.2  Iris-setosa
-29           4.7          3.2           1.6          0.2  Iris-setosa
-
-**************************summery of the dataset**********************************/n/n
-The following are the three class or species types of iris in the data set 
- Iris-setosa Iris-versicolor Iris-virginica
-       sepal_Length  sepal_Width  Petal_Length  Petal_Width
-count    150.000000   150.000000    150.000000   150.000000
-mean       5.843333     3.054000      3.758667     1.198667
-std        0.828066     0.433594      1.764420     0.763161
-min        4.300000     2.000000      1.000000     0.100000
-25%        5.100000     2.800000      1.600000     0.300000
-50%        5.800000     3.000000      4.350000     1.300000
-75%        6.400000     3.300000      5.100000     1.800000
-max        7.900000     4.400000      6.900000     2.500000
-
-*************************The number of null or missing values in the iris dataframe for each column**********
- 
-sepal_Length    0
-sepal_Width     0
-Petal_Length    0
-Petal_Width     0
-Class           0
-dtype: int64
-
-=============================== Duplicate Entries ==============================
-
-     sepal_Length  sepal_Width  Petal_Length  Petal_Width           Class
-34            4.9          3.1           1.5          0.1     Iris-setosa
-37            4.9          3.1           1.5          0.1     Iris-setosa
-142           5.8          2.7           5.1          1.9  Iris-virginica
-
-============================= Median of Attributes ===========================
-
-sepal_Length    5.80
-sepal_Width     3.00
-Petal_Length    4.35
-Petal_Width     1.30
-dtype: float64
-
-******************************Mean of Attributes******************************/n
-sepal_Length    5.843333
-sepal_Width     3.054000
-Petal_Length    3.758667
-Petal_Width     1.198667
-dtype: float64
-
-******************************Max of Attributes******************************/n
-sepal_Length               7.9
-sepal_Width                4.4
-Petal_Length               6.9
-Petal_Width                2.5
-Class           Iris-virginica
-dtype: object
-
- 
 
 # <h1> Visualising the Iris data set <h1> # 
 
@@ -593,8 +483,6 @@ https://python-graph-gallery.com/92-control-color-in-seaborn-heatmaps
 https://www.python-graph-gallery.com/92-control-color-in-seaborn-heatmaps
 
 https://www.section.io/engineering-education/seaborn-tutorial/
-
-https://realpython.com/pandas-groupby/
 
 https://www.pycodemates.com/2022/05/iris-dataset-classification-with-python.html
 
