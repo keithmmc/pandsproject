@@ -139,21 +139,12 @@ this shows that The column labels of the iris DataFrame are:
 
 print(iris.head(10))
 this will show the first columns are part of the Iris-setosa class
-   sepal_Length  sepal_Width  Petal_Length  Petal_Width        Class
-0           5.1          3.5           1.4          0.2  Iris-setosa
-1           4.9          3.0           1.4          0.2  Iris-setosa
-2           4.7          3.2           1.3          0.2  Iris-setosa
-3           4.6          3.1           1.5          0.2  Iris-setosa
-4           5.0          3.6           1.4          0.2  Iris-setosa
-5           5.4          3.9           1.7          0.4  Iris-setosa
-6           4.6          3.4           1.4          0.3  Iris-setosa
-7           5.0          3.4           1.5          0.2  Iris-setosa
-8           4.4          2.9           1.4          0.2  Iris-setosa
-9           4.9          3.1           1.5          0.1  Iris-setosa
-
+![Alt text](../../../Pictures/Capture.PNG)
 print(iris.tail(10))
+ 
+this is show that the last ten columns are belong to the Iris-Virginica class
 
-
+![Alt text](../../../Pictures/Capture1.PNG)
  
 <p>
 
@@ -167,6 +158,7 @@ iris_grouped = iris.groupby("Class")
 print(iris.groupby("Class").describe().T) 
 Using pands groupby function to split the iris dataframe by Class of iris species  
 
+these commands show that all three classes have a mean of count of 50, all and ava
 
 
 
