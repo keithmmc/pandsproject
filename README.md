@@ -3,7 +3,7 @@
 
 
 # <h1> Python and other software tools used in this project <h1>
-this is the project for the pands module in ATU. 
+
 
 Python and other software tools used in this project
 The purpose of this project is to investigate the Fisher Iris data set described above using Python code. Python is a high level interpreted general purpose programming language. The Python interpreter and its extensive standard library are freely available to all. Along with the Python standard library, there are many libraries that enhance the usage of Python and make it a powerful tool for performing data analytics and machine learning.
@@ -221,7 +221,7 @@ iris_ranges = iris_grouped.max() - iris_grouped.min() print("The range of the va
 
 
 
-After I had done some investagating into the dataframe, I wanted to save some of this information into a text file. To this I imported the sys module and opened the file in append mode. 
+After I had done some investagating into the dataframe, I wanted to save some of this information into a text file. To do this I imported the sys module and opened the file in append mode. 
 
 this text file first printed the row information along with the first 10 and final 10 rows, with a random sample of five rows and a splice function to return rows 20 to 30. it then returned information on the three rows null rows duplicated rows with mean and max values. 
 
@@ -231,11 +231,21 @@ code to achieve this
     print(iris.columns)
     print("printing the first 10 rows of data of the dataset")
     print(iris.head(10))
+    
+    
+   
+<img width="608" alt="Capture16" src="https://github.com/keithmmc/pandsproject/assets/100876230/b7fee1c3-7a03-4a4f-9db8-6024ff2e7e19">
 
     print(iris.tail(10))
     print (iris.sample(5))
     print (iris[20:30])
- 
+       
+     
+ <img width="539" alt="Capture17" src="https://github.com/keithmmc/pandsproject/assets/100876230/8808b695-9433-4003-801d-c15eac925b86">
+  
+   <img width="503" alt="Capture18" src="https://github.com/keithmmc/pandsproject/assets/100876230/7f7e76a4-f60c-4176-b8e5-ab266827a18a">
+
+
     iris['Class'].unique()
     species_type =iris['Class'].unique()
     print("The following are the three class or species types of iris in the data set \n",*species_type, sep = " ")
@@ -243,6 +253,9 @@ code to achieve this
     iris["Class"].value_counts()
    
     print(iris.describe())
+       
+     <img width="565" alt="Capture19" src="https://github.com/keithmmc/pandsproject/assets/100876230/b0afc542-ceed-406a-a053-26ce91722d5a">
+
    
     print(iris.isnull().sum())
    
@@ -253,7 +266,17 @@ code to achieve this
     print(iris.mean())
   
     print(iris.max())
+       
+      
+       
+     
 
+<img width="638" alt="Capture20" src="https://github.com/keithmmc/pandsproject/assets/100876230/fc43eb34-4fc1-4972-9f4a-c595c76b87c2">
+       
+ <img width="511" alt="Capture21" src="https://github.com/keithmmc/pandsproject/assets/100876230/ccc8d3d2-b00b-4e36-a5f8-0d53dfec098d">
+
+  
+<img width="537" alt="Capture22" src="https://github.com/keithmmc/pandsproject/assets/100876230/1967b0cf-f8a1-4c74-a14a-b393f91c1b4b">
 
     
 
